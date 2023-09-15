@@ -1,0 +1,16 @@
+table {
+    background-color: #B0E0E6;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+.field {clear:both; text-align:right;}
+.main {float:left}
+
+label {float:left;}
+
+.input_form {width: 300px}
+
+
