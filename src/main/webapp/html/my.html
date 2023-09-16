@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>RPG</title>
-    <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="/css/my.css" rel="stylesheet">
 </head>
 <body>
@@ -121,8 +121,8 @@
                 + item.level + "</td><td id='tr_birthday" + item.id + "'>"
                 + new Date(item.birthday).toLocaleDateString() + "</td><td id='tr_banned" + item.id + "'>"
                 + item.banned + "</td>"
-                    + "<td id='tr_button" + item.id +"'><button id='button_edit" + item.id + "' onclick='playerEdit("   + item.id + "," + pageNumber + ")'><img id='img_edit"   + item.id + "' src='/img/edit.png'></button></td>"
-                    + "<td><button id='button_delete" + item.id + "' onclick='playerDelete(" + item.id + "," + pageNumber + ")'><img id='img_delete" + item.id + "'src='/img/delete.png'></button></td>")
+                    + "<td id='tr_button" + item.id +"'><button id='button_edit" + item.id + "' onclick='playerEdit("   + item.id + "," + pageNumber + ")'><img alt='edit' id='img_edit"   + item.id + "' src='/img/edit.png'></button></td>"
+                    + "<td><button id='button_delete" + item.id + "' onclick='playerDelete(" + item.id + "," + pageNumber + ")'><img alt='delete' id='img_delete" + item.id + "' src='/img/delete.png'></button></td>")
                     .appendTo("#main_table")
             })
         });
@@ -157,7 +157,7 @@
             }
         })
         return res;
-    };
+    }
 
     function playerDelete(id,pageNumber){
         let url = "/rest/players/".concat(id);
@@ -177,7 +177,7 @@
 
         let tr_button_id = "#tr_button" + id;
 
-        $(tr_button_id).empty().append("<button id='button_save" + id + "' onclick='playerSave("   + id +  "," + pageNumber + ")'><img src='/img/save.png'></button>");
+        $(tr_button_id).empty().append("<button id='button_save" + id + "' onclick='playerSave("   + id +  "," + pageNumber + ")'><img alt='save' src='/img/save.png'></button>");
 
         let img_edit_id = "#img_edit" + id;
         $(img_edit_id).attr("src","/img/save.png");
@@ -258,26 +258,26 @@
     function changeCellEdit(trName,id){
 
         let tr_id = "#tr_" + trName + id;
-        var tr_val = $(tr_id).text();
-        var code = '<input type="text" id="edit_' + trName + id + '" value="'+tr_val+'" />';
+        let tr_val = $(tr_id).text();
+        let code = '<input type="text" id="edit_' + trName + id + '" value="'+tr_val+'" />';
         $(tr_id).empty().append(code);
     }
 
     function playerSave(id,pageNumber){
 
-        id_name = "#edit_name" + id;
+        let id_name = "#edit_name" + id;
         let name = $(id_name).val();
 
-        id_title = "#edit_title" + id;
+        let id_title = "#edit_title" + id;
         let title = $(id_title).val();
 
-        id_race = "#sel_race" + id;
+        let id_race = "#sel_race" + id;
         let race = $(id_race).val();
 
-        id_profession = "#sel_profession" + id;
+        let id_profession = "#sel_profession" + id;
         let profession = $(id_profession).val();
 
-        id_banned = "#sel_banned" + id;
+        let id_banned = "#sel_banned" + id;
         let banned = $(id_banned).val();
 
         let url = "/rest/players/".concat(id);
